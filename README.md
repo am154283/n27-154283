@@ -1,1 +1,4 @@
-# n27-154283
+# N27
+
+Entwicklung einer Onlinebank nach dem Vorbild der N26-Bank.
+
