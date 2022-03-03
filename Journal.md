@@ -38,3 +38,7 @@
 * button erstellen 
 * style einfügen über.css datei
 * Geschweifte klammer mit option+8 erstellen
+
+
+## 25.01.2021
+*Unterschied zwischen POST und GET verstehen
