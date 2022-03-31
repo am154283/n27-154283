@@ -5,6 +5,7 @@
     margin: 0 auto
   }
   
+  
   .kopf{
     padding: 5px;
     background: #4CAF50;
@@ -62,7 +63,7 @@
     margin-bottom: 10px;
     margin-right: 10%;
     margin-left: 10%;  
-        
+    font-size: 2.5vh;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em;  
     color:black;
@@ -77,6 +78,18 @@
     font-size: 2vh;  
     color: red;
   }
+
+  .erfolgsmeldung {
+    width: 80%;
+    margin-bottom: 10px;
+    margin-right: 10%;
+    margin-left: 10%;  
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vh;  
+    color: rgb(0, 255, 21);
+  }
+
+
     
   .divii {
     border-radius: 5px;
@@ -111,4 +124,8 @@
     color: red;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3vw; 
+  }
+
+  .navigationsleiste {
+    color:rgb(119, 107, 107)
   }

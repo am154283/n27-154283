@@ -13,6 +13,7 @@ class Kunde{
         this.Kontostand
         this.Geburtsdatum
         this.Mail
+        this.Rufnummer
     }
 }
 
@@ -23,11 +24,12 @@ let kunde = new Kunde()
 // Die konkrete Instanz bekommt Eigenschaftswerte zugewiesen.
 
 kunde.IdKunde = 154283
-kunde.Nachname = "Lionel"
-kunde.Vorname = "Messi"
-kunde.Geburtsdatum = "01.01.2000"
+kunde.Nachname = "Cristiano"
+kunde.Vorname = "Ronaldo"
+kunde.Geburtsdatum = "23.10.2000"
 kunde.Mail = "cr7@web.de"
 kunde.Kennwort = "123"
+kunde.Rufnummer = "+49123/4567890"
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -121,16 +123,84 @@ meineApp.get('/login',(browserAnfrage, serverAntwort, next) => {
     serverAntwort.clearCookie('istAngemeldetAls')
 
     serverAntwort.render('login.ejs', {
-        meldung : "Bitte geben Sie die Zugangsdaten ein."
+        Meldung: "Bitte geben Sie die Zugangsdaten ein."
     })          
 })
 
 // Die meineApp.post('login') wird ausgeführt, sobald der Button
 // auf dem Login-Formular gedrückt wird.
 
+
 meineApp.get('/about',(browserAnfrage, serverAntwort, next) => {              
-    serverAntwort.render('about.ejs', {})          
+
+    serverAntwort.render('about.ejs', {
+    })          
 })
+
+meineApp.get('/profile',(browserAnfrage, serverAntwort, next) => {              
+
+    serverAntwort.render('profile.ejs', {
+        Vorname: kunde.Vorname,
+        Nachname: kunde.Nachname,
+        Mail: kunde.Mail,
+        Rufnummer: kunde.Rufnummer,
+        Kennwort: kunde.Kennwort,
+        Erfolgsmeldung: " "
+    })          
+})
+
+// Sobald der Speichern-Button auf der Profile-Seite gedrückt wird,
+// wird die meineApp.post('profile'...) abgearbeitet.
+
+meineApp.post('/profile',(browserAnfrage, serverAntwort, next) => {              
+    
+    // Die Erfolgsmeldung für das Speichern der geänderten 
+    // Profildaten wird in eine lokale Variable namens
+    // erfolgsmeldung gespeichert.
+
+    let erfolgsmeldung = ""
+
+    // Der Wert der Eigenschaft von Mail im Browser wird
+    // zugewiesen (=) an die Eigenschaft Mail des Objekts kunde
+
+console.log(kunde.Mail)
+console.log(browserAnfrage.body.Mail)
+
+    if(kunde.Mail !== browserAnfrage.body.Mail){
+        // Wenn der Wer der Eigenschaft von kunde.Mail abweicht 
+        // vom Wert der Eigenschaft Mail aus dem Browser-Formular,
+        // dann wird die Erfolgsmeldungung initialisiert.
+
+        erfolgsmeldung = erfolgsmeldung + "Änderung der Mail erfolgreich. "
+        kunde.Mail = browserAnfrage.body.Mail
+        console.log(erfolgsmeldung)
+    }
+    if(kunde.Mail != browserAnfrage.body.Rufnummer){
+        erfolgsmeldung = erfolgsmeldung + "Änderung der Rufnummer erfolgreich. "
+        kunde.Rufnummer = browserAnfrage.body.Rufnummer
+        console.log(erfolgsmeldung)
+    }
+
+    if(kunde.Nachname != browserAnfrage.body.Kennwort){
+        erfolgsmeldung = erfolgsmeldung + "Änderung des Kennworts erfolgreich. "
+        kunde.kennwort = browserAnfrage.body.kennwort
+        console.log(erfolgsmeldung)
+    }
+    
+    
+    console.log("Profil gespeichert.")
+    
+    serverAntwort.render('profile.ejs', {
+        Vorname: kunde.Vorname,
+        Nachname: kunde.Nachname,
+        Mail: kunde.Mail,
+        Rufnummer: kunde.Rufnummer,
+        Kennwort: kunde.Kennwort,
+        Erfolgsmeldung: erfolgsmeldung
+        
+    })
+})
+
 
 // require('./Uebungen/ifUndElse.js')
 // require('./Uebungen/klasseUndObjekt.js')
