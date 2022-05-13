@@ -13,7 +13,7 @@
   
   .navigationsleiste {  
     font-family: Arial, Helvetica, sans-serif;    
-    background-color: rgb(119, 107, 107);        
+    background-color: black;        
     font-size: 2vh;    
     text-align:center;  
     color: white;      
@@ -21,7 +21,7 @@
   }
   
   .inhaltsbereich{
-    min-height: 470px;
+    min-height: 470px; 
   }
   
   .fusszeile{
@@ -119,6 +119,11 @@
     color: white;  
     text-decoration: none;
     }
+
+  .schaltflaeche{  
+      color: blue; 
+      text-decoration: none;
+      }
     
   p {
     color: red;
@@ -129,3 +134,16 @@
   .navigationsleiste {
     color:rgb(119, 107, 107)
   }
+
+  a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
