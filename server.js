@@ -51,6 +51,13 @@ class Konto{
         this.Pin    
     }
 }
+class Kredit{
+    constructor(){
+        this.Zinssatz
+        this.Laufzeit
+        this.Betrag
+    }
+}
 // Instanzinierung eines Objekts namens konto vom Typ Konto
 
 let konto = new Konto()
@@ -306,6 +313,23 @@ meineApp.get('/kontostandAnzeigen',(browserAnfrage, serverAntwort, next) => {
     }          
 })
 
+meineApp.get('/kreditrechner.ejs',(browserAnfrage, serverAntwort, next) => {              
+
+    if(browserAnfrage.signedCookies['istAngemeldetAls']){
+
+        serverAntwort.render('kontostandAnzeigen.ejs', {
+         
+        })
+    }else{
+        serverAntwort.render('login.ejs',{
+            Meldung: ""
+        })
+    }          
+})
+
+
+
 // require('./Uebungen/ifUndElse.js')
 // require('./Uebungen/klasseUndObjekt.js')
-require('./Uebungen/klausur.js')
+require('./Klausuren/20221026_klausur.js')
+
