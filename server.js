@@ -333,3 +333,10 @@ meineApp.get('/kreditrechner.ejs',(browserAnfrage, serverAntwort, next) => {
 // require('./Uebungen/klasseUndObjekt.js')
 require('./Klausuren/20221026_klausur.js')
 
+
+
+
+
+
+
+

@@ -8,7 +8,7 @@
   
   .kopf{
     padding: 5px;
-    background: blueviolet;
+    background: purple;
   }
   
   .navigationsleiste {  
@@ -132,13 +132,13 @@
   }
 
   .navigationsleiste {
-    color:rgb(119, 107, 107)
+    color: black
   }
 
   a:link, a:visited {
   background-color: #f44336;
   color: white;
-  padding: 14px 25px;
+  padding: 14px 21px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
