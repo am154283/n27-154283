@@ -4,6 +4,7 @@
 // Alle Kunden unserer Bank haben dieselben Eigenschaften, aber
 // unterschiedliche Eigenschaftswerte.
 
+
 class Kunde{
     constructor(){
         this.IdKunde
