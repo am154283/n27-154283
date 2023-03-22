@@ -7,12 +7,12 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>N27</title>
+    <title>N27 - Kontostand anzeigen</title>
 </head>
 <body>
     <div class="rahmen">
         <div class="kopf">
-            <h1>Willkommen bei der N27</h1>            
+            <h1>N27 - Kontostand anzeigen</h1>
         </div>
         <div class="navigationsleiste">            
             <a href="/">
@@ -32,15 +32,18 @@
             </a>
         </div>
         <div class="inhaltsbereich">
-            <form>
-                <button class="login" formaction="/kontostandAnzeigen">Kontostand anzeigen</button>
-                <br>
-                <button class="login" formaction="/kreditBerechnen">Kredit berechnen</button>
-                <br>
-                <button class="login" formaction="/kontoAnlegen">Konto anlegen</button>
-                <br>
-                <button class="login" formaction="/Überweisen">Überweisen</button>
-            </form>
+            <form method="post">
+                <select id="kontoArt" name="kontoArt">                    
+                    <% for (var i=0; i < MeineIbans.length; i++){ %>
+                        <option value="<%= MeineIbans[i].iban %>"><%= MeineIbans[i].iban %></option>
+                    <% } %>
+                </select>
+                <label>Kontoart:</label><br>
+                <input type="text" name="Kontoart" readonly value=<%= MeineIbans[0].kontoart %>  ><br>
+                <label>Kontostand:</label><br>
+                <input type="number" name="Kontostand" readonly value=<%= MeineIbans[0].anfangssaldo %>  ><br>
+            </form>   
+            <p class="erfolgsmeldung"><%= Erfolgsmeldung %></p>
         </div>
         <div class="fusszeile">
             &copy; 2022 GW21A
