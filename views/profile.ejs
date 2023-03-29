@@ -24,6 +24,7 @@
             <a href="/about">
                 <i class="fa fa-info fa-2x" aria-hidden="true" title="Über uns"></i>
             </a>   --
+<<<<<<< HEAD
             <a href="/support">
                 <i class="fa fa-phone-square fa-2x" aria-hidden="true" title="Über uns"></i>
             </a>   --
@@ -45,6 +46,27 @@
                 <input type="tel" name="Rufnummer" value=<%= Rufnummer %>  ><br>
                 <button class="login" formaction="/profile">Änderung speichern</button>
             </form>   
+=======
+            <a href="/login">
+                <i class="fa fa-sign-out fa-2x" title="Abmelden"></i>
+            </a> --
+        </div>
+        <div class="inhaltsbereich">
+            <form method="post">
+                <label for="fname">Vorname:</label><br>
+                <input type="text" name="Vorname" readonly value=<%= Vorname %>  ><br>
+                <label for="lname">Nachname:</label><br>
+                <input type="text" name="Nachname" value=<%= Nachname %> readonly><br>        
+                <label for="fname">Mail:</label><br>
+                <input type="email" name="Mail" value=<%= Mail %>  ><br>
+                <label for="fname">Kennwort:</label><br>
+                <input type="password" name="Kennwort" value=<%= Kennwort %>  ><br>
+                <label for="fname">Rufnummer:</label><br>
+                <input type="tel" name="Rufnummer" value=<%= Rufnummer %>  ><br>
+                
+                <button class="profile" formaction="/profile">Änderung speichern</button>
+            </form>     
+>>>>>>> a20662ff2c808657aa3b103b73463139eee5938e
             <p class="erfolgsmeldung"><%= Erfolgsmeldung %></p>
         </div>
         <div class="fusszeile">
